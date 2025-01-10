@@ -1,0 +1,22 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaUI.Controls.Demo.App"
+             xmlns:local="using:AvaloniaUI.Controls.Demo"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             RequestedThemeVariant="Default">
+    <Application.Resources>
+        <ResourceDictionary>
+        </ResourceDictionary>
+    </Application.Resources>
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+        <themes:MaterialTheme PrimaryColor="Purple" SecondaryColor="Lime" />
+        <StyleInclude Source="avares://AvaloniaUI.Controls/Banking/Themes/Material.axaml" />
+    </Application.Styles>
+</Application>

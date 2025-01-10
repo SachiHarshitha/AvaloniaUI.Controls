@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="AvaloniaUI.Controls.Demo/App.axaml" value="AvaloniaUI.Controls.Demo/AvaloniaUI.Controls.Demo.csproj" />
+        <entry key="AvaloniaUI.Controls.Demo/Views/MainWindow.axaml" value="AvaloniaUI.Controls.Demo/AvaloniaUI.Controls.Demo.csproj" />
+        <entry key="AvaloniaUI.Controls/Banking/Themes/Material.axaml" value="AvaloniaUI.Controls.Demo/AvaloniaUI.Controls.Demo.csproj" />
+        <entry key="AvaloniaUI.Controls/Banking/Themes/Material/CreditCardControl.axaml" value="AvaloniaUI.Controls.Demo/AvaloniaUI.Controls.Demo.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

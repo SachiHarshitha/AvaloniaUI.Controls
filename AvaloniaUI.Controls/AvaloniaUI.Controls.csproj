@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.2.3"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.3"/>
+        <PackageReference Include="Material.Avalonia" Version="3.9.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Resources\Fonts\FontAwesome6-Brands.otf"/>
+        <AvaloniaResource Include="Resources\Fonts\FontAwesome6-Brands.otf"/>
+        <None Remove="Resources\Fonts\FontAwesome6-Regular.otf"/>
+        <AvaloniaResource Include="Resources\Fonts\FontAwesome6-Regular.otf"/>
+        <None Remove="Resources\Fonts\OpenSans-Regular.ttf"/>
+        <AvaloniaResource Include="Resources\Fonts\OpenSans-Regular.ttf"/>
+        <None Remove="Resources\Fonts\OpenSans-Semibold.ttf"/>
+        <AvaloniaResource Include="Resources\Fonts\OpenSans-Semibold.ttf"/>
+    </ItemGroup>
+
+</Project>

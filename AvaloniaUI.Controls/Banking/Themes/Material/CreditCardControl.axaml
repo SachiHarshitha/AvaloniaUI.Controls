@@ -1,0 +1,67 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:banking="clr-namespace:AvaloniaUI.Controls.Banking"
+                    xmlns:converters="clr-namespace:AvaloniaUI.Controls.Converters"
+                    xmlns:controls="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+                    xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles">
+    <!-- Add Resources Here -->
+    <converters:ItemStringFormatter x:Key="ItemStringFormatter" />
+
+    <FontFamily x:Key="FontAwesomeBrands">avares://AvaloniaUI.Controls/Resources/Fonts/FontAwesome6-Brands.otf#Font Awesome 6 Brands Regular</FontFamily>
+    <Design.PreviewWith>
+        <Grid Background="Bisque" Width="1000">
+            <banking:CreditCardControl Width="500" Height="300" Theme="{DynamicResource MaterialCreditCardTemplate}" />
+        </Grid>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="MaterialCreditCardTemplate" TargetType="{x:Type banking:CreditCardControl}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <controls:Card Margin="8" CornerRadius="10" Background="#C0C0C0" Theme="{StaticResource MaterialCard}">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="20">
+
+                        <TextBlock VerticalAlignment="Center" Grid.Row="0" FontSize="48" HorizontalAlignment="Right"
+                                   FontFamily="{StaticResource FontAwesomeBrands}" Text="{TemplateBinding LogoText}" />
+
+                        <MaskedTextBox UseFloatingWatermark="True" PromptChar="0" FontSize="15"
+                                       FontStretch="UltraExpanded" Text="{TemplateBinding CardNumber, Mode=TwoWay}"
+                                       assists:TextFieldAssist.Label="Card Number" Mask="0000  0000  0000  0000"
+                                       Grid.Row="1" />
+
+                        <StackPanel Margin="5 10" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <DatePicker DayVisible="False" Width="130" HorizontalAlignment="Left"
+                                        assists:DatePickerAssist.DateTimeFormat="MM/yy"
+                                        SelectedDate="{TemplateBinding ExpirationDate, Mode=TwoWay,Converter={StaticResource ItemStringFormatter}, ConverterParameter=MM/yy}"
+                                        assists:TextFieldAssist.Label="Expiration Date">
+                                <DatePicker.Styles>
+                                    <Style
+                                        Selector="DatePicker /template/ TextBox#DisplayTextBox /template/ ToggleButton#CalendarButton">
+                                        <Setter Property="Margin" Value="0" />
+                                        <Setter Property="Padding" Value="0" />
+                                        <Setter Property="VerticalAlignment" Value="Bottom" />
+                                    </Style>
+                                </DatePicker.Styles>
+                            </DatePicker>
+                            <MaskedTextBox UseFloatingWatermark="True" Margin="20 0 0 0" PromptChar="0"
+                                           Text="{TemplateBinding CVV, Mode=TwoWay}"
+                                           assists:TextFieldAssist.Label="CVC" HorizontalAlignment="Right" Mask="000"
+                                           MaxLength="3" />
+                        </StackPanel>
+
+                        <TextBox UseFloatingWatermark="True" Grid.Row="4"
+                                 Text="{TemplateBinding CardholderName, Mode=TwoWay}"
+                                 assists:TextFieldAssist.Label="Cardholder Name" Watermark="Lastname, Firstname" />
+                        <Grid.Styles>
+                            <Style
+                                Selector="banking|CreditCardControl /template/ TextBox /template/ TextPresenter#PART_TextPresenter">
+                                <Setter Property="VerticalAlignment" Value="Bottom" />
+                                <Setter Property="LetterSpacing" Value="5" />
+                            </Style>
+
+                        </Grid.Styles>
+                    </Grid>
+                </controls:Card>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
